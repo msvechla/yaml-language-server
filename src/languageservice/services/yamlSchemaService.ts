@@ -18,7 +18,7 @@ import {
 import { URI } from 'vscode-uri';
 
 import * as nls from 'vscode-nls';
-import { convertSimple2RegExpPattern } from '../utils/strings';
+import { convertSimple2RegExp } from '../utils/strings';
 import { SingleYAMLDocument } from '../parser/yamlParser07';
 import { JSONDocument } from '../parser/jsonParser07';
 import { parse } from 'yaml';
@@ -74,7 +74,7 @@ export class FilePatternAssociation {
 
   constructor(pattern: string) {
     try {
-      this.patternRegExp = new RegExp(convertSimple2RegExpPattern(pattern) + '$');
+      this.patternRegExp = new RegExp(convertSimple2RegExp(pattern) + '$');
     } catch (e) {
       // invalid pattern
       this.patternRegExp = null;
